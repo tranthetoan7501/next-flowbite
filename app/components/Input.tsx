@@ -1,13 +1,15 @@
 import { init } from "next/dist/compiled/webpack/webpack";
 import { exit } from "process";
 import React from "react";
+import { useFormContext } from "react-hook-form";
 interface InputProps {
-  label?: string;
+  label: string;
   type?: string;
   id?: string;
   placeholder?: string;
 }
 export default function Input({ label, type, id, placeholder }: InputProps) {
+  const { register } = useFormContext();
   return (
     <div className='flex flex-col w-96 h-14 gap-2'>
       <div className='flex justify-between'>
@@ -20,6 +22,12 @@ export default function Input({ label, type, id, placeholder }: InputProps) {
         type={type}
         className='w-full p-2 font-medium border rounded-md border-slate-300 placeholder:opacity-60'
         placeholder={placeholder}
+        {...register(label, {
+          required: {
+            value: true,
+            message: "required",
+          },
+        })}
       />
     </div>
   );
