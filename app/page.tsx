@@ -1,16 +1,12 @@
 "use client";
 
 import { Dropdown } from "flowbite-react";
+import Input from "./components/Input";
 
 export default function Component() {
   return (
-    <div className='p-5'>
-      <Dropdown label='Dropdown button' dismissOnClick={false}>
-        <Dropdown.Item>Dashboard</Dropdown.Item>
-        <Dropdown.Item>Settings</Dropdown.Item>
-        <Dropdown.Item>Earnings</Dropdown.Item>
-        <Dropdown.Item>Sign out</Dropdown.Item>
-      </Dropdown>
+    <div className='flex justify-center w-full h-screen items-center bg-slate-200'>
+      <Input />
     </div>
   );
 }
