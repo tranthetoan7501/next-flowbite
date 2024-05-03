@@ -6,7 +6,7 @@ import Form from "./components/Form";
 
 export default function Component() {
   return (
-    <div className='flex justify-center w-full h-screen  bg-slate-200'>
+    <div className='flex justify-center w-full h-screen'>
       <Form />
     </div>
   );

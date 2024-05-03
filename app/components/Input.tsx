@@ -11,16 +11,16 @@ interface InputProps {
 export default function Input({ label, type, id, placeholder }: InputProps) {
   const { register } = useFormContext();
   return (
-    <div className='flex flex-col w-96 h-14 gap-2'>
-      <div className='flex justify-between'>
-        <label htmlFor={id} className='font-semibold capitalize'>
+    <div className="flex flex-col w-96 h-14 gap-2">
+      <div className="flex justify-between">
+        <label htmlFor={id} className="font-semibold capitalize">
           {label}
         </label>
       </div>
       <input
         id={id}
         type={type}
-        className='w-full p-2 font-medium border rounded-md border-slate-300 placeholder:opacity-60'
+        className="w-full p-2 font-medium border rounded-md border-slate-300 placeholder:opacity-60"
         placeholder={placeholder}
         {...register(label, {
           required: {
@@ -32,6 +32,17 @@ export default function Input({ label, type, id, placeholder }: InputProps) {
     </div>
   );
 }
+
+const InputError = ({ message }: { message: String }) => {
+  return (
+    <p
+      className="flex items-center gap-1 px-2 font-semibold text-red-500 bg-red-100 rounded-md"
+      {...framer_error}
+    >
+      {message}
+    </p>
+  );
+};
 const framer_error = {
   initial: {
     opacity: 0,
